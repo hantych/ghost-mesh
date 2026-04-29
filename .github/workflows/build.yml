@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: ghost_mesh
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,6 +44,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ghost-mesh-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: ghost_mesh/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
           if-no-files-found: error
